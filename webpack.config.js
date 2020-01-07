@@ -1,4 +1,5 @@
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -6,29 +7,47 @@ module.exports = {
   entry: ["./src/js/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js"
+    filename: "bundle.js",
   },
+  devServer: {
+    compress: true,
+    port: 9000,
+    open: "Google Chrome",
+  },
+  devtool: "cheap-module-eval-source-map",
   plugins: [
     new htmlWebpackPlugin({
-      template: "./src/index.html"
-    })
+      template: "./src/index.html",
+    }),
+    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
       {
+        // babel-loader for transpiling code
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
+        use: [
+          {
+            loader: "babel-loader",
+          },
+        ],
       },
       {
+        // css-loader && and style-loader for css files
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
-      }
-    ]
-  }
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+      },
+      {
+        // file-loader for loading image files
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [{ loader: "file-loader" }],
+      },
+      {
+        // file-loader for loading fonts
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [{ loader: "file-loader" }],
+      },
+    ],
+  },
 };
