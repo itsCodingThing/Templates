@@ -7,10 +7,6 @@
     "dev": "webpack-dev-server",
     "start": "webpack"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.5.2",
