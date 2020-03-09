@@ -3,32 +3,35 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: ["./src/js/index.js"],
+  entry: ["./src/index.ts"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js"
+    filename: "[name].bundle.js",
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: "./src/index.html"
-    })
+      template: "./src/index.html",
+    }),
   ],
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
   module: {
     rules: [
+      // {
+      //   test: /\.tsx?$/,
+      //   use: "ts-loader",
+      //   exclude: /node_modules/,
+      // },
       {
-        test: /\.js$/,
+        test: /\.js?$/,
+        use: "babel-loader",
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
       },
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
-      }
-    ]
-  }
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+      },
+    ],
+  },
 };
