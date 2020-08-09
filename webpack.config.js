@@ -12,7 +12,6 @@ module.exports = {
   devServer: {
     compress: true,
     port: 9000,
-    open: "Google Chrome",
   },
   devtool: "cheap-module-eval-source-map",
   plugins: [
@@ -27,11 +26,7 @@ module.exports = {
         // babel-loader for transpiling code
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-          },
-        ],
+        use: [{ loader: "babel-loader" }],
       },
       {
         // css-loader && and style-loader for css files
@@ -42,12 +37,7 @@ module.exports = {
         // file-loader for loading image files
         test: /\.(png|svg|jpg|gif)$/,
         use: [{ loader: "file-loader" }],
-      },
-      {
-        // file-loader for loading fonts
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [{ loader: "file-loader" }],
-      },
+      }
     ],
   },
 };
