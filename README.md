@@ -1,4 +1,4 @@
-# template-webpack-js
+# BASIC JS TEMPLATE
 basic template for webpack config
 
 # list of config
