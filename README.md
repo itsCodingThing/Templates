@@ -1,6 +1,6 @@
-# BASIC JS TEMPLATE
-basic template for webpack config
+# JS TEMPLATE
+basic javascript template
 
-# list of config
+# list of tools
 1. webpack v4
 2. babel v7
