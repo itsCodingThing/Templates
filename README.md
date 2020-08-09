@@ -1,6 +1,6 @@
 # JS TEMPLATE
 basic javascript template
 
-# list of tools
+# LIST OF TOOLS
 1. webpack v4
 2. babel v7
