@@ -14,16 +14,11 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".ts", ".js"],
   },
   devtool: "eval-source-map",
   module: {
     rules: [
-      // {
-      //   test: /\.tsx?$/,
-      //   use: "ts-loader",
-      //   exclude: /node_modules/,
-      // },
       {
         test: /\.ts?$/,
         use: "babel-loader",
