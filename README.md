@@ -1,6 +1,6 @@
-# template-webpack-js
-basic template for webpack config
+# TYPESCRIPT TEMPLATE
+basic typescript template
 
-# list of config
+# LIST OF TOOLS
 1. webpack v4
 2. babel v7
