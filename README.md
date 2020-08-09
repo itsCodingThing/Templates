@@ -1,9 +1,7 @@
-# template-webpack-js
+# REACT TEMPLATE  
+basic react template
 
-react template for webpack config
-
-# list of config
-
+# list of tools
 1. webpack v4
 2. babel v7
 3. eslint
